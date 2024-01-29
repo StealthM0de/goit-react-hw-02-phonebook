@@ -38,12 +38,12 @@ export class ContactForm extends Component {
     const { name, number } = this.state;
     const { addContact, contacts } = this.props;
 
-    // if name and number is empty, it will not submit(return)
+    // when name and number is empty, it will not submit(return)
     if (name.trim() === '' || number.trim() === '') {
       return;
     }
 
-    // if existing contact set an alert, it will not submit(return)
+    // when existing contact set an alert, it will not submit(return)
     const existingContact = contacts.find(
       contact => contact.name.toLowerCase() === name.toLowerCase()
     );
@@ -59,7 +59,7 @@ export class ContactForm extends Component {
       number: number.trim(),
     });
 
-    // Reset Form Fields upon submitting
+    // will reset Form Fields upon submitting
     this.setState({
       name: '',
       number: '',
@@ -76,7 +76,7 @@ export class ContactForm extends Component {
           <input
             type="text"
             name="name"
-            // add \ before - in [' \-] to make it work (LMS)
+            // add \ before - in [' \-] to make it work (LMS) REGEX
             pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan."
             required
@@ -90,7 +90,7 @@ export class ContactForm extends Component {
           <input
             type="tel"
             name="number"
-            // add \ before - in [\-.\s] to make it work (LMS)
+            // add \ before - in [\-.\s] to make it work (LMS) REGEX
             pattern="\+?\d{1,4}?[\-.\s]?\(?\d{1,3}?\)?[\-.\s]?\d{1,4}[\-.\s]?\d{1,4}[\-.\s]?\d{1,9}"
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             required
