@@ -26,6 +26,12 @@ export class App extends Component {
     }));
   };
 
+  setFilter = filterValue => {
+    this.setState({
+      filter: filterValue,
+    });
+  };
+
   filterContact = () => {
     const { contacts, filter } = this.state;
     const filterLowerCase = filter.toLowerCase();
